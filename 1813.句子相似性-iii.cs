@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 /*
  * @lc app=leetcode.cn id=1813 lang=csharp
  * @lcpr version=21110
@@ -6,9 +8,23 @@
  */
 
 // @lc code=start
-public class Solution {
-    public bool AreSentencesSimilar(string sentence1, string sentence2) {
-
+public class Solution
+{
+    public bool AreSentencesSimilar(string sentence1, string sentence2)
+    {
+        string[] A = sentence1.Split(" ");
+        string[] B = sentence2.Split(" ");
+        return IsAIncludeB(A, B) || IsAIncludeB(B, A);
+    }
+    private bool IsAIncludeB(string[] a, string[] b)
+    {
+        int n = a.Length, m = b.Length;
+        if (n < m) return false;
+        if (n == m) return Enumerable.SequenceEqual(a, b);
+        int l = 0, r = 0;
+        for (; l < m; l++) if (a[l] != b[l]) break;
+        for (; r < m; r++) if (a[n - r - 1] != b[m - r - 1]) break;
+        return l + r >= m;
     }
 }
 // @lc code=end
