@@ -9,7 +9,7 @@ using System.Collections.Generic;
 
 // @lc code=start
 public class Solution {
-    private static readonly SortedSet<char> specialCharacter=new SortedSet<char>("!@#$%^&*()-+");
+    private static readonly SortedSet<char> specialCharacter = new SortedSet<char>("!@#$%^&*()-+");
     private static int TypeOf(char c) {
         if (Char.IsLower(c)) return 0b1;
         if (Char.IsUpper(c)) return 0b10;
@@ -19,8 +19,8 @@ public class Solution {
     }
     public bool StrongPasswordCheckerII(string password) {
         if (password.Length < 8) return false;
-        int chk=0;
-        char last='\t';
+        int chk = 0;
+        char last = '\t';
         foreach (char c in password) {
             if (c == last) return false;
             chk |= TypeOf(c);

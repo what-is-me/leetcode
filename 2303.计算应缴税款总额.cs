@@ -9,7 +9,7 @@ using System;
 // @lc code=start
 public class Solution {
     public double CalculateTax(int[][] brackets, int income) {
-        int ans=0,last=0;
+        int ans = 0, last = 0;
         foreach (var item in brackets) {
             if (item[0] < income) {
                 ans += (item[0] - last) * item[1];

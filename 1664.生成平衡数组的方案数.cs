@@ -11,7 +11,7 @@ public class Solution {
     void InitSum() {
         oddSum = new int[nums.Length];
         evenSum = new int[nums.Length];
-        int os=0,es=0;
+        int os = 0, es = 0;
         for (int i = 0; i < nums.Length; i++) {
             if (i % 2 == 1) os += nums[i];
             else es += nums[i];
@@ -45,7 +45,7 @@ public class Solution {
     public int WaysToMakeFair(int[] nums) {
         this.nums = nums;
         InitSum();
-        int ret=0;
+        int ret = 0;
         for (int i = 0; i < nums.Length; i++) {
             if (CheckBalance(i)) ret++;
         }

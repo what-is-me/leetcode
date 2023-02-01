@@ -9,13 +9,13 @@ using System.Collections.Generic;
 // @lc code=start
 public class Solution {
     public int[] FindingUsersActiveMinutes(int[][] logs, int k) {
-        Dictionary<int, SortedSet<int>>map=new Dictionary<int, SortedSet<int>>();
+        Dictionary<int, SortedSet<int>> map = new Dictionary<int, SortedSet<int>>();
         foreach (var log in logs) {
-            int p=log[0],t=log[1];
+            int p = log[0], t = log[1];
             if (!map.ContainsKey(p)) map[p] = new SortedSet<int>();
             map[p].Add(t);
         }
-        int[]ret=new int[k];
+        int[] ret = new int[k];
         foreach (var item in map) {
             ret[item.Value.Count - 1] += 1;
         }

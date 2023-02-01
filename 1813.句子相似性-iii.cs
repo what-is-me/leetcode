@@ -8,16 +8,13 @@ using System.Linq;
  */
 
 // @lc code=start
-public class Solution
-{
-    public bool AreSentencesSimilar(string sentence1, string sentence2)
-    {
+public class Solution {
+    public bool AreSentencesSimilar(string sentence1, string sentence2) {
         string[] A = sentence1.Split(" ");
         string[] B = sentence2.Split(" ");
         return IsAIncludeB(A, B) || IsAIncludeB(B, A);
     }
-    private bool IsAIncludeB(string[] a, string[] b)
-    {
+    private bool IsAIncludeB(string[] a, string[] b) {
         int n = a.Length, m = b.Length;
         if (n < m) return false;
         if (n == m) return Enumerable.SequenceEqual(a, b);

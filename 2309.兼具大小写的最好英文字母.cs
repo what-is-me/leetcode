@@ -1,4 +1,3 @@
-using Internal;
 /*
  * @lc app=leetcode.cn id=2309 lang=csharp
  * @lcpr version=21202
@@ -9,10 +8,11 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Internal;
 // @lc code=start
 public class Solution {
     public string GreatestLetter(string s) {
-        SortedDictionary<string, int> dict=new SortedDictionary<string, int>();
+        SortedDictionary<string, int> dict = new SortedDictionary<string, int>();
         foreach (char c in s) {
             if (Char.IsUpper(c)) {
                 dict[c.ToString()] = dict.GetValueOrDefault(c.ToString(), 0) | 1;
@@ -20,7 +20,7 @@ public class Solution {
                 dict[c.ToString().ToUpper()] = dict.GetValueOrDefault(c.ToString().ToUpper(), 0) | 2;
             }
         }
-        string ans="";
+        string ans = "";
         foreach (var item in dict) {
             Console.WriteLine(item);
             if (item.Value == 3) {

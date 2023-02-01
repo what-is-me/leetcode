@@ -9,7 +9,7 @@
 public class Solution {
     public int CountAsterisks(string s) {
         bool flag = false;
-        int ret=0,tmp=0;
+        int ret = 0, tmp = 0;
         foreach (char c in s) {
             if (c == '*') {
                 ret++;

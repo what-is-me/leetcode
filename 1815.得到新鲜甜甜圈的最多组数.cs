@@ -1,4 +1,3 @@
-using Internal;
 /*
  * @lc app=leetcode.cn id=1815 lang=csharp
  * @lcpr version=21113
@@ -9,17 +8,18 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Internal;
 // @lc code=start
 public class Solution : Dictionary<long, int> {
     long GetHashCodeOfArray(byte[] statu) {
-        long ret=0;
+        long ret = 0;
         foreach (byte t in statu) ret = ret << 5 | t;
         return ret;
     }
     int Dfs(byte[] statu, int batchSize) {
-        long statu_=GetHashCodeOfArray(statu);
+        long statu_ = GetHashCodeOfArray(statu);
         if (this.ContainsKey(statu_)) return this[statu_];
-        int ret=0,sum=0;
+        int ret = 0, sum = 0;
         for (int i = 1; i < batchSize; i++) sum += i * statu[i];
         for (int i = 1; i < batchSize; i++) {
             if (statu[i] > 0) {

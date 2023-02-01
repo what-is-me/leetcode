@@ -1,6 +1,6 @@
-using Internal;
 using System;
 using System.Collections.Generic;
+using Internal;
 /*
  * @lc app=leetcode.cn id=1814 lang=csharp
  * @lcpr version=21110
@@ -10,9 +10,9 @@ using System.Collections.Generic;
 
 // @lc code=start
 public class Solution {
-    const int MOD=1000000007;
+    const int MOD = 1000000007;
     private int rev(int x) {
-        int ret=0;
+        int ret = 0;
         while (x != 0) {
             ret = ret * 10 + x % 10;
             x /= 10;
@@ -20,12 +20,12 @@ public class Solution {
         return ret;
     }
     public int CountNicePairs(int[] nums) {
-        Dictionary<int,int> map=new Dictionary<int, int>();
+        Dictionary<int, int> map = new Dictionary<int, int>();
         foreach (int num in nums) {
-            int tmp=num - rev(num);
+            int tmp = num - rev(num);
             map[tmp] = map.GetValueOrDefault(tmp, 0) + 1;
         }
-        long ret=0;
+        long ret = 0;
         foreach (var item in map) {
             ret = (ret + 1L * item.Value * (item.Value - 1) / 2) % MOD;
         }

@@ -15,7 +15,7 @@ public class Solution {
         rhs = temp;
     }
     public int MinSideJumps(int[] obstacles) {
-        int[] dp=new int[3],last=new int[3]{0x3f3f3f3f,0,0x3f3f3f3f};
+        int[] dp = new int[3], last = new int[3] { 0x3f3f3f3f, 0, 0x3f3f3f3f };
         foreach (var t in obstacles) {
             if (t != 0) last[t - 1] = 0x3f3f3f3f;
             last.CopyTo(dp, 0);

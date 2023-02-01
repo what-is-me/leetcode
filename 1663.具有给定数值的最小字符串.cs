@@ -10,7 +10,7 @@ using System.Text;
 public class Solution {
     public string GetSmallestString(int n, int k) {
         k -= n;
-        char[] ret=new char[n];
+        char[] ret = new char[n];
         for (int i = n - 1; i >= 0; i--) {
             if (k > 25) {
                 ret[i] = 'z';
